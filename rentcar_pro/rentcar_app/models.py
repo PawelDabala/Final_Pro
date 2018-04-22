@@ -20,7 +20,8 @@ class Car(models.Model):
     price_for_day = models.FloatField()
     car_class = models.IntegerField(choices=CAR_CLASS)
     is_rent = models.BooleanField(default=False)
-    # car_photo = models.FileField(null=True)
+    car_photo = models.FileField(null=True)
+    rents = models.ManyToManyField("Customer", through="CarRents")
 
     def __str__(self):
         return "{} {}".format(self.mark, self.model)
@@ -32,7 +33,7 @@ class Customer(models.Model):
     street = models.CharField(max_length=100)
     house_nr = models.CharField(max_length=50)
     flat_nr = models.CharField(max_length=50, null=True, blank = True)
-    rents = models.ManyToManyField(Car, through="CarRents")
+    # rents = models.ManyToManyField(Car, through="CarRents")
 
     def __str__(self):
         return "{} {}".format(self.first_name, self.last_name)

@@ -3,6 +3,7 @@
 {% block content %}
       {{ car }}
     <ul>
+        <img src="{{ car.car_photo.url }}">
         <li><strong>Marka: </strong> {{ car.mark }}</li>
         <li><strong>Model: </strong> {{ car.model }}</li>
         <li><strong>Rok Produkcji: </strong> {{ car.year }}</li>
